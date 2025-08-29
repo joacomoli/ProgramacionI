@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ejemplo DOM y value</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="card">
+        <p> Saldo: $<span id="saldo">0</span></p>
+    </section>
+    <section class="card">
+        <label> Alias:
+            <input type="text" id="cuenta" placeholder="Depositenle a joaco"/>
+        </label>
+        <label> Monto:
+            <input type="number" id="monto" placeholder="No seas raton"/>
+        </label>
+        
+    </section>
+  <div class="wrap" id="contenedor">
+    <button class="botonera" id="sumar">Agregar saldo</button>
+    <button class="botonera" id="restar"> Extraer saldo</button>
+    </div>
+    <p id="mensaje"> </p>
+  <script src="ejercicioDeBanco.js"></script>
+</body>
+</html>
