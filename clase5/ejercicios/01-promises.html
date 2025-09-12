@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Promises</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .codigo {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .resultado {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios de Promises - JavaScript Asíncrono</h1>
+
+    <!-- Ejercicio 1: Promise básica -->
+    <div class="ejercicio">
+        <h2>Ejercicio 1: Promise Básica</h2>
+        <p><strong>Objetivo:</strong> Crear una Promise que simule una operación asíncrona exitosa.</p>
+        
+        <div class="codigo">
+            <h4>Conceptos clave:</h4>
+            <ul>
+                <li><code>new Promise()</code> - Crear una nueva Promise</li>
+                <li><code>resolve()</code> - Cumplir la Promise exitosamente</li>
+                <li><code>reject()</code> - Rechazar la Promise con un error</li>
+                <li><code>.then()</code> - Ejecutar código cuando la Promise se cumple</li>
+                <li><code>.catch()</code> - Manejar errores de la Promise</li>
+            </ul>
+        </div>
+        
+        <button onclick="ejecutarEjercicio1()">Ejecutar Ejercicio 1</button>
+        <div id="resultado1" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <!-- Ejercicio 2: Promise con error -->
+    <div class="ejercicio">
+        <h2>Ejercicio 2: Promise con Manejo de Errores</h2>
+        <p><strong>Objetivo:</strong> Crear una Promise que puede fallar y manejar el error correctamente.</p>
+        
+        <div class="codigo">
+            <h4>Conceptos clave:</h4>
+            <ul>
+                <li><code>reject()</code> - Rechazar la Promise con un error</li>
+                <li><code>.catch()</code> - Capturar y manejar errores</li>
+                <li>Parámetros booleanos para simular éxito/fallo</li>
+                <li>Manejo de errores con <code>Error</code> objects</li>
+            </ul>
+        </div>
+        
+        <button onclick="ejecutarEjercicio2(true)">Ejecutar Exitoso</button>
+        <button onclick="ejecutarEjercicio2(false)">Ejecutar con Error</button>
+        <div id="resultado2" class="resultado">Haz clic en un botón para ver el resultado...</div>
+    </div>
+
+    <!-- Ejercicio 3: Promise.all -->
+    <div class="ejercicio">
+        <h2>Ejercicio 3: Promise.all</h2>
+        <p><strong>Objetivo:</strong> Ejecutar múltiples Promises en paralelo y esperar a que todas se completen.</p>
+        
+        <div class="codigo">
+            <h4>Conceptos clave:</h4>
+            <ul>
+                <li><code>Promise.all()</code> - Ejecutar múltiples Promises en paralelo</li>
+                <li>Todas las Promises deben completarse exitosamente</li>
+                <li>Si una falla, toda la operación falla</li>
+                <li>Resultados en el mismo orden que las Promises</li>
+            </ul>
+        </div>
+        
+        <button onclick="ejecutarEjercicio3()">Ejecutar Descargas Paralelas</button>
+        <div id="resultado3" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <!-- Ejercicio 4: Promise.race -->
+    <div class="ejercicio">
+        <h2>Ejercicio 4: Promise.race</h2>
+        <p><strong>Objetivo:</strong> Ejecutar múltiples Promises y obtener el resultado del que termine primero.</p>
+        
+        <div class="codigo">
+            <h4>Conceptos clave:</h4>
+            <ul>
+                <li><code>Promise.race()</code> - Ejecutar múltiples Promises y obtener la primera respuesta</li>
+                <li>Útil para timeouts y conexiones alternativas</li>
+                <li>La primera Promise que se complete gana</li>
+                <li>Las demás Promises se ignoran</li>
+            </ul>
+        </div>
+        
+        <button onclick="ejecutarEjercicio4()">Ejecutar Carrera de Conexiones</button>
+        <div id="resultado4" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <script src="js/01-promises.js"></script>
+</body>
+</html>

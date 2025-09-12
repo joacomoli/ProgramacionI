@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Manipulación del DOM con Estilos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+        .ejercicio {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .codigo {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e91e63;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        button {
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #c2185b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .resultado {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            min-height: 50px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .tema-controls {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ffc107;
+        }
+        .elemento-dinamico {
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .color-info {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #e91e63, #9c27b0);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 Manipulación del DOM con Estilos</h1>
+        <p>Ejercicios prácticos para aprender a modificar estilos dinámicamente con JavaScript</p>
+    </div>
+
+    <!-- Ejercicio 1: Cambio de tema -->
+    <div class="ejercicio">
+        <h2>Ejercicio 1: Cambio de Tema Dinámico</h2>
+        <p><strong>Objetivo:</strong> Cambiar el tema de la página completa usando JavaScript.</p>
+        
+        <div class="codigo">
+            <h4>Conceptos clave:</h4>
+            <ul>
+                <li><code>document.body.style</code> - Modificar estilos del body</li>
+                <li><code>querySelectorAll()</code> - Seleccionar múltiples elementos</li>
+                <li><code>forEach()</code> - Aplicar cambios a cada elemento</li>
+                <li>Variables globales para mantener estado</li>
+            </ul>
+        </div>
+        
+        <div class="tema-controls">
+            <h3>Controles de Tema</h3>
+            <button onclick="cambiarTema()">Cambiar Tema</button>
+            <span id="temaTexto" class="color-info">Tema Claro</span>
+        </div>
+        
+        <div id="resultado1" class="resultado">
+            Haz clic en "Cambiar Tema" para ver cómo JavaScript modifica todos los estilos de la página.
+        </div>
+    </div>
+
+    <!-- Ejercicio 2: Animación de elementos -->
+    <div class="ejercicio">
+        <h2>Ejercicio 2: Animación de Elementos</h2>
+        <p><strong>Objetivo:</strong> Animar elementos usando transformaciones CSS y JavaScript.</p>
+        
+        <div class="codigo">
+            <h4>Conceptos clave:</h4>
+            <ul>
+                <li><code>transform</code> - Modificar posición y escala</li>
+                <li><code>opacity</code> - Controlar transparencia</li>
+                <li><code>transition</code> - Animaciones suaves</li>
+                <li><code>setTimeout()</code> - Delays para animaciones</li>
+            </ul>
+        </div>
+        
+        <button onclick="animarElementos()">Animar Elementos</button>
+        <div id="resultado2" class="resultado">
+            Haz clic en "Animar Elementos" para ver cómo se animan todos los ejercicios.
+        </div>
+    </div>
+
+    <!-- Ejercicio 3: Crear elementos dinámicamente -->
+    <div class="ejercicio">
+        <h2>Ejercicio 3: Crear Elementos Dinámicamente</h2>
+        <p><strong>Objetivo:</strong> Crear nuevos elementos HTML con estilos usando JavaScript.</p>
+        
+        <div class="codigo">
+            <h4>Conceptos clave:</h4>
+            <ul>
+                <li><code>document.createElement()</code> - Crear elementos HTML</li>
+                <li><code>element.style.cssText</code> - Aplicar múltiples estilos</li>
+                <li><code>element.innerHTML</code> - Agregar contenido HTML</li>
+                <li><code>appendChild()</code> - Agregar al DOM</li>
+            </ul>
+        </div>
+        
+        <button onclick="crearElementoDinamico()">Crear Elemento</button>
+        <button onclick="document.getElementById('elementosDinamicos').innerHTML = ''">Limpiar</button>
+        
+        <div id="elementosDinamicos"></div>
+        <div id="resultado3" class="resultado">
+            Haz clic en "Crear Elemento" para agregar nuevos elementos con estilos dinámicos.
+        </div>
+    </div>
+
+    <!-- Ejercicio 4: Modificar estilos CSS -->
+    <div class="ejercicio">
+        <h2>Ejercicio 4: Modificar Estilos CSS Dinámicamente</h2>
+        <p><strong>Objetivo:</strong> Cambiar estilos CSS usando JavaScript para crear temas dinámicos.</p>
+        
+        <div class="codigo">
+            <h4>Conceptos clave:</h4>
+            <ul>
+                <li><code>document.createElement('style')</code> - Crear elementos CSS</li>
+                <li><code>element.textContent</code> - Agregar CSS dinámico</li>
+                <li><code>document.head.appendChild()</code> - Agregar al head</li>
+                <li>Colores aleatorios y temas dinámicos</li>
+            </ul>
+        </div>
+        
+        <button onclick="modificarEstilosCSS()">Cambiar Colores</button>
+        <div id="colorActual" class="color-info">Color actual: #e91e63</div>
+        
+        <div id="resultado4" class="resultado">
+            Haz clic en "Cambiar Colores" para ver cómo JavaScript modifica los estilos CSS de toda la página.
+        </div>
+    </div>
+
+    <!-- Ejercicio 5: Efectos de transición -->
+    <div class="ejercicio">
+        <h2>Ejercicio 5: Efectos de Transición</h2>
+        <p><strong>Objetivo:</strong> Crear animaciones y transiciones usando JavaScript y CSS.</p>
+        
+        <div class="codigo">
+            <pre><code>// Aplicar efectos de transición
+function aplicarEfectosTransicion() {
+    const elementos = document.querySelectorAll('.ejercicio');
+    
+    elementos.forEach((elemento, index) => {
+        elemento.classList.add('efecto-transicion');
+        
+        // Crear keyframes dinámicamente
+        const estilo = document.createElement('style');
+        estilo.textContent = `
+            @keyframes slideIn${index} {
+                0% { transform: translateX(-100px); opacity: 0; }
+                100% { transform: translateX(0); opacity: 1; }
+            }
+            
+            .efecto-transicion {
+                animation: slideIn${index} 0.8s ease-out forwards;
+            }
+        `;
+        
+        document.head.appendChild(estilo);
+    });
+}</code></pre>
+        </div>
+        
+        <button onclick="aplicarEfectosTransicion()">Aplicar Efectos</button>
+        
+        <div id="resultado5" class="resultado">
+            Haz clic en "Aplicar Efectos" para ver animaciones personalizadas creadas con JavaScript.
+        </div>
+    </div>
+
+    <!-- Ejercicio 6: Manipulación avanzada -->
+    <div class="ejercicio">
+        <h2>Ejercicio 6: Manipulación Avanzada del DOM</h2>
+        <p><strong>Objetivo:</strong> Crear elementos complejos con interacciones avanzadas.</p>
+        
+        <div class="codigo">
+            <pre><code>// Manipulación avanzada del DOM
+function manipularDOMAvanzado() {
+    const contenedor = document.getElementById('manipulacionAvanzada');
+    
+    const card = document.createElement('div');
+    card.style.cssText = `
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transform: perspective(1000px) rotateY(0deg);
+        transition: all 0.5s ease;
+        cursor: pointer;
+    `;
+    
+    // Agregar efectos interactivos
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'perspective(1000px) rotateY(5deg) scale(1.02)';
+    });
+    
+    card.innerHTML = `
+        <h3>Tarjeta Interactiva</h3>
+        <p>Esta tarjeta tiene efectos 3D y es completamente interactiva.</p>
+        <button onclick="cambiarColorTarjeta(this)">Cambiar Color</button>
+    `;
+    
+    contenedor.appendChild(card);
+}</code></pre>
+        </div>
+        
+        <button onclick="manipularDOMAvanzado()">Crear Tarjeta Interactiva</button>
+        <button onclick="document.getElementById('manipulacionAvanzada').innerHTML = ''">Limpiar</button>
+        
+        <div id="manipulacionAvanzada"></div>
+        <div id="resultado6" class="resultado">
+            Haz clic en "Crear Tarjeta Interactiva" para ver elementos con efectos 3D y animaciones.
+        </div>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="ejercicio">
+        <h2>💡 Conceptos Clave Aprendidos</h2>
+        <div class="resultado">
+            <h4>En este ejercicio aprendiste a:</h4>
+            <ul>
+                <li><strong>Modificar estilos CSS:</strong> Usando <code>element.style.propiedad</code></li>
+                <li><strong>Crear elementos dinámicamente:</strong> Con <code>document.createElement()</code></li>
+                <li><strong>Agregar CSS dinámico:</strong> Creando elementos <code>&lt;style&gt;</code></li>
+                <li><strong>Animar elementos:</strong> Combinando CSS transitions y JavaScript</li>
+                <li><strong>Eventos interactivos:</strong> mouseenter, mouseleave, click</li>
+                <li><strong>Manipulación del DOM:</strong> appendChild, innerHTML, classList</li>
+            </ul>
+            
+            <h4>Propiedades CSS útiles para JavaScript:</h4>
+            <ul>
+                <li><code>backgroundColor</code>, <code>color</code>, <code>fontSize</code></li>
+                <li><code>transform</code>, <code>opacity</code>, <code>transition</code></li>
+                <li><code>boxShadow</code>, <code>borderRadius</code>, <code>padding</code></li>
+                <li><code>display</code>, <code>position</code>, <code>zIndex</code></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/07-dom-styles.js"></script>
+    <script>
+        // Inicializar efectos al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            inicializarEfectos();
+        });
+    </script>
+</body>
+</html>

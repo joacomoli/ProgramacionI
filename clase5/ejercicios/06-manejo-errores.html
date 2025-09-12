@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Manejo de Errores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #dc3545;
+            border-bottom: 2px solid #dc3545;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #28a745;
+        }
+        h4 {
+            color: #6c757d;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #c82333;
+        }
+        .resultado {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            min-height: 50px;
+        }
+        .status-code {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 50px;
+            text-align: center;
+        }
+        .status-200 {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-400 {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .status-401 {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .status-403 {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .status-404 {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .status-429 {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .status-500 {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #c3e6cb;
+        }
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #f5c6cb;
+        }
+        .warning-message {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ffeaa7;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #dc3545;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .api-response {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios de Manejo de Errores</h1>
+    
+    <div class="ejercicio">
+        <h2>Ejercicio 1: Códigos de Estado HTTP</h2>
+        <p>Mostrar todos los códigos de estado HTTP importantes</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>200: Ejecución exitosa, todo OK</li>
+            <li>400: El pedido era correcto, pero falló en un parámetro</li>
+            <li>401: No nos autenticamos correctamente</li>
+            <li>403: Prohibido, no tenemos permisos suficientes</li>
+            <li>404: Escribimos mal la API por lo tanto no existe</li>
+            <li>429: Demasiados pedidos, se saturó la API</li>
+            <li>500: Error del lado del servidor</li>
+        </ul>
+        <button onclick="ejecutarEjercicio1()">Mostrar Códigos de Estado</button>
+        <div id="resultado1" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 2: Manejo de Errores con try/catch</h2>
+        <p>Capturar y manejar diferentes tipos de errores</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>try/catch para capturar errores</li>
+            <li>throw para lanzar errores personalizados</li>
+            <li>instanceof para verificar tipos de error</li>
+            <li>Manejo centralizado de errores</li>
+        </ul>
+        <button onclick="ejecutarEjercicio2('division')">División por Cero</button>
+        <button onclick="ejecutarEjercicio2('json')">JSON Inválido</button>
+        <button onclick="ejecutarEjercicio2('fetch')">API Inexistente</button>
+        <button onclick="ejecutarEjercicio2('array')">Índice Fuera de Rango</button>
+        <div id="resultado2" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 3: Validación de Formularios</h2>
+        <p>Sistema robusto de validación con manejo de errores específicos</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>Validación de campos requeridos</li>
+            <li>Expresiones regulares para formatos</li>
+            <li>Validación de rangos numéricos</li>
+            <li>Acumulación y presentación de errores</li>
+        </ul>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="ejemplo@correo.com">
+        </div>
+        <div class="form-group">
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" placeholder="Tu edad">
+        </div>
+        <button onclick="validarFormulario()">Validar Formulario</button>
+        <button onclick="limpiarFormulario()">Limpiar</button>
+        <div id="resultado3" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 4: Simulación de API con Diferentes Respuestas</h2>
+        <p>Simular diferentes tipos de respuestas de API y manejar cada caso</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>Simulación de respuestas HTTP</li>
+            <li>Manejo de códigos de estado</li>
+            <li>Estructura de respuestas de API</li>
+            <li>Procesamiento de errores de API</li>
+        </ul>
+        <button onclick="simularAPI('exito')">Respuesta Exitosa</button>
+        <button onclick="simularAPI('error_validacion')">Error de Validación</button>
+        <button onclick="simularAPI('no_autorizado')">No Autorizado</button>
+        <button onclick="simularAPI('no_encontrado')">No Encontrado</button>
+        <button onclick="simularAPI('limite_excedido')">Límite Excedido</button>
+        <button onclick="simularAPI('error_servidor')">Error del Servidor</button>
+        <div id="resultado4" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 5: Sistema de Reintentos</h2>
+        <p>Implementar sistema de reintentos para operaciones que pueden fallar</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>Reintentos automáticos con límite</li>
+            <li>Backoff exponencial (aumentar delay)</li>
+            <li>Operaciones inestables simuladas</li>
+            <li>Manejo de timeouts</li>
+        </ul>
+        <button onclick="ejecutarReintentos('inestable')">Operación Inestable</button>
+        <button onclick="ejecutarReintentos('timeout')">Operación con Timeout</button>
+        <button onclick="ejecutarReintentos('fetch')">Petición HTTP</button>
+        <div id="resultado5" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 6: Logging y Monitoreo de Errores</h2>
+        <p>Sistema de logging para monitorear errores en producción</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>Sistema de logging estructurado</li>
+            <li>Niveles de log (INFO, WARNING, ERROR, CRITICAL)</li>
+            <li>Contexto y metadatos de errores</li>
+            <li>Filtrado y visualización de logs</li>
+        </ul>
+        <button onclick="generarLogs()">Generar Logs de Prueba</button>
+        <button onclick="mostrarLogs()">Mostrar Todos los Logs</button>
+        <button onclick="mostrarLogs('error')">Solo Errores</button>
+        <button onclick="mostrarLogs('warning')">Solo Advertencias</button>
+        <button onclick="limpiarLogs()">Limpiar Logs</button>
+        <div id="resultado6" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <script src="js/06-manejo-errores.js"></script>
+</body>
+</html>

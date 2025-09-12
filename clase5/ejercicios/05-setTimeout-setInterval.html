@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de setTimeout y setInterval</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #17a2b8;
+            border-bottom: 2px solid #17a2b8;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #28a745;
+        }
+        h4 {
+            color: #6c757d;
+            margin-top: 20px;
+        }
+        button {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #138496;
+        }
+        button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        .resultado {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            min-height: 50px;
+        }
+        .cronometro {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .contador {
+            font-size: 3em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+        }
+        .contador.amarillo {
+            background: #ffc107;
+            color: #212529;
+        }
+        .contador.rojo {
+            background: #dc3545;
+        }
+        .slide {
+            display: none;
+            padding: 20px;
+            background: #e9ecef;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .slide.activo {
+            display: block;
+        }
+        .notificacion {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        .notificacion.mostrar {
+            transform: translateX(0);
+        }
+        .notificacion.success {
+            background: #28a745;
+        }
+        .notificacion.error {
+            background: #dc3545;
+        }
+        .notificacion.warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .cuenta-regresiva {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios de setTimeout y setInterval</h1>
+    
+    <div class="ejercicio">
+        <h2>Ejercicio 1: setTimeout Básico</h2>
+        <p>Ejecutar funciones después de un tiempo determinado</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>setTimeout() para ejecutar código después de un delay</li>
+            <li>clearTimeout() para cancelar ejecuciones pendientes</li>
+            <li>Múltiples setTimeout ejecutándose en paralelo</li>
+            <li>Diferencias entre setTimeout y código síncrono</li>
+        </ul>
+        <button onclick="ejecutarEjercicio1()">Ejecutar Timeouts</button>
+        <button onclick="cancelarTimeout()">Cancelar Timeout</button>
+        <div id="resultado1" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 2: setInterval - Cronómetro</h2>
+        <p>Crear un cronómetro que cuenta hacia adelante</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>setInterval() para ejecutar código repetitivamente</li>
+            <li>clearInterval() para detener la repetición</li>
+            <li>Formateo de tiempo (MM:SS)</li>
+            <li>Control de estado de intervalos</li>
+        </ul>
+        <div id="cronometro" class="cronometro">00:00</div>
+        <button onclick="ejecutarEjercicio2()">Iniciar Cronómetro</button>
+        <button onclick="detenerCronometro()">Detener</button>
+        <button onclick="resetearCronometro()">Resetear</button>
+        <div id="resultado2" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 3: Contador Visual</h2>
+        <p>Contador que cambia de color y velocidad según su valor</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>Modificación dinámica de intervalos</li>
+            <li>Cambio de estilos CSS con JavaScript</li>
+            <li>Lógica condicional en intervalos</li>
+            <li>Control de velocidad de ejecución</li>
+        </ul>
+        <div id="contadorVisual" class="contador">0</div>
+        <button onclick="iniciarContadorVisual()">Iniciar Contador</button>
+        <button onclick="detenerContadorVisual()">Detener</button>
+        <button onclick="resetearContadorVisual()">Resetear</button>
+        <div id="resultado3" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 4: Sistema de Notificaciones</h2>
+        <p>Notificaciones que aparecen y desaparecen automáticamente</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>Creación dinámica de elementos DOM</li>
+            <li>Animaciones CSS con JavaScript</li>
+            <li>setTimeout para ocultar elementos</li>
+            <li>Posicionamiento fijo y z-index</li>
+        </ul>
+        <button onclick="mostrarNotificacionAleatoria()">Mostrar Notificación Aleatoria</button>
+        <button onclick="mostrarNotificacion('Operación exitosa', 'success')">Éxito</button>
+        <button onclick="mostrarNotificacion('Error crítico', 'error')">Error</button>
+        <button onclick="mostrarNotificacion('Advertencia importante', 'warning')">Advertencia</button>
+        <div id="resultado4" class="resultado">Haz clic en los botones para ver las notificaciones...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 5: Slider Automático</h2>
+        <p>Slider que cambia automáticamente entre diferentes slides</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>Rotación automática de contenido</li>
+            <li>Manipulación de clases CSS</li>
+            <li>Control de índices con módulo (%)</li>
+            <li>Inicio y detención de procesos automáticos</li>
+        </ul>
+        <div class="slide activo">Slide 1: Contenido inicial</div>
+        <div class="slide">Slide 2: Segundo contenido</div>
+        <div class="slide">Slide 3: Tercer contenido</div>
+        <div class="slide">Slide 4: Cuarto contenido</div>
+        <button onclick="iniciarSlider()">Iniciar Slider</button>
+        <button onclick="detenerSlider()">Detener Slider</button>
+        <button onclick="reiniciarSlider()">Reiniciar</button>
+        <div id="resultado5" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 6: Temporizador de Cuenta Regresiva</h2>
+        <p>Temporizador que cuenta hacia atrás hasta llegar a cero</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>Cuenta regresiva con setInterval</li>
+            <li>Formateo de tiempo (MM:SS)</li>
+            <li>Cambio de colores según tiempo restante</li>
+            <li>Acciones al llegar a cero</li>
+        </ul>
+        <div id="cuentaRegresiva" class="cuenta-regresiva">00:00</div>
+        <button onclick="iniciarCuentaRegresiva(30)">30 segundos</button>
+        <button onclick="iniciarCuentaRegresiva(60)">1 minuto</button>
+        <button onclick="iniciarCuentaRegresiva(120)">2 minutos</button>
+        <button onclick="detenerCuentaRegresiva()">Detener</button>
+        <div id="resultado6" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <script src="js/05-setTimeout-setInterval.js"></script>
+</body>
+</html>

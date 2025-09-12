@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Fetch API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #28a745;
+        }
+        h4 {
+            color: #6c757d;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .resultado {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            min-height: 50px;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-loading {
+            background-color: #ffc107;
+            animation: pulse 1s infinite;
+        }
+        .status-success {
+            background-color: #28a745;
+        }
+        .status-error {
+            background-color: #dc3545;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .json-display {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: #007bff;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios de Fetch API</h1>
+    
+    <div class="ejercicio">
+        <h2>Ejercicio 1: Petición GET Básica</h2>
+        <p>Obtener usuarios de una API pública usando fetch()</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>fetch() para peticiones HTTP</li>
+            <li>await para esperar respuestas asíncronas</li>
+            <li>response.ok para verificar éxito</li>
+            <li>response.json() para convertir a objeto JavaScript</li>
+            <li>try/catch para manejo de errores</li>
+        </ul>
+        <button onclick="ejecutarEjercicio1()">Obtener Usuarios</button>
+        <div id="resultado1" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 2: Petición POST con Datos</h2>
+        <p>Crear un nuevo post enviando datos al servidor</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>method: 'POST' para enviar datos</li>
+            <li>headers: 'Content-Type': 'application/json'</li>
+            <li>body: JSON.stringify() para convertir objeto a JSON</li>
+            <li>Formularios y captura de datos del usuario</li>
+        </ul>
+        <div class="form-group">
+            <label for="tituloPost">Título:</label>
+            <input type="text" id="tituloPost" placeholder="Mi nuevo post">
+        </div>
+        <div class="form-group">
+            <label for="contenidoPost">Contenido:</label>
+            <textarea id="contenidoPost" placeholder="Contenido del post..."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="usuarioId">Usuario ID:</label>
+            <input type="number" id="usuarioId" value="1">
+        </div>
+        <button onclick="ejecutarEjercicio2()">Crear Post</button>
+        <div id="resultado2" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 3: Manejo de Diferentes Tipos de Respuesta</h2>
+        <p>Procesar diferentes tipos de contenido de respuesta</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>response.json() para objetos JavaScript</li>
+            <li>response.text() para texto plano</li>
+            <li>response.blob() para archivos binarios</li>
+            <li>response.arrayBuffer() para datos binarios</li>
+            <li>Headers HTTP y metadatos</li>
+        </ul>
+        <div class="form-group">
+            <label for="tipoRespuesta">Tipo de Respuesta:</label>
+            <select id="tipoRespuesta">
+                <option value="json">JSON</option>
+                <option value="text">Texto</option>
+                <option value="blob">Blob</option>
+            </select>
+        </div>
+        <button onclick="ejecutarEjercicio3()">Obtener Recurso</button>
+        <div id="resultado3" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 4: Múltiples Peticiones</h2>
+        <p>Comparar peticiones paralelas vs secuenciales</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>Promise.all() para peticiones paralelas</li>
+            <li>await secuencial para peticiones una tras otra</li>
+            <li>Medición de tiempo de ejecución</li>
+            <li>Ventajas y desventajas de cada enfoque</li>
+        </ul>
+        <button onclick="ejecutarEjercicio4('paralelo')">Peticiones Paralelas</button>
+        <button onclick="ejecutarEjercicio4('secuencial')">Peticiones Secuenciales</button>
+        <div id="resultado4" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 5: Interceptores y Middleware</h2>
+        <p>Sistema de interceptores para manejar headers y errores automáticamente</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>Interceptores de request y response</li>
+            <li>Headers automáticos (Authorization, etc.)</li>
+            <li>Manejo centralizado de errores</li>
+            <li>Patrón middleware en JavaScript</li>
+        </ul>
+        <button onclick="ejecutarEjercicio5()">Probar Interceptores</button>
+        <div id="resultado5" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 6: Upload de Archivos</h2>
+        <p>Subir archivos con barra de progreso</p>
+        <h4>Conceptos clave:</h4>
+        <ul>
+            <li>FormData para envío de archivos</li>
+            <li>XMLHttpRequest para mostrar progreso</li>
+            <li>Eventos de progreso de upload</li>
+            <li>Barras de progreso visuales</li>
+        </ul>
+        <div class="form-group">
+            <label for="archivoInput">Seleccionar Archivo:</label>
+            <input type="file" id="archivoInput">
+        </div>
+        <button onclick="ejecutarEjercicio6()">Subir Archivo</button>
+        <div id="progreso" style="display: none;">
+            <div class="progress-bar">
+                <div id="barraProgreso" class="progress-fill"></div>
+            </div>
+            <div id="porcentajeProgreso" style="text-align: center; margin-top: 5px;">0%</div>
+        </div>
+        <div id="resultado6" class="resultado">Haz clic en el botón para ver el resultado...</div>
+    </div>
+
+    <script src="js/03-fetch-api.js"></script>
+</body>
+</html>

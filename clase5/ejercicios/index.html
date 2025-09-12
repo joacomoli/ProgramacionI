@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de JavaScript Asíncrono - Índice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .ejercicio-card {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ejercicio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        .ejercicio-card h3 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 3px solid;
+            padding-bottom: 10px;
+        }
+        .ejercicio-card.promises h3 { border-color: #007bff; }
+        .ejercicio-card.async-await h3 { border-color: #28a745; }
+        .ejercicio-card.fetch h3 { border-color: #dc3545; }
+        .ejercicio-card.callbacks h3 { border-color: #ffc107; }
+        .ejercicio-card.timing h3 { border-color: #17a2b8; }
+        .ejercicio-card.errors h3 { border-color: #6f42c1; }
+        .ejercicio-card.dom-styles h3 { border-color: #e91e63; }
+        
+        .conceptos {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .conceptos h4 {
+            margin-top: 0;
+            color: #495057;
+        }
+        .conceptos ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .conceptos li {
+            margin: 5px 0;
+        }
+        
+        .boton-ejercicio {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .boton-ejercicio:hover {
+            background: #0056b3;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nivel {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .nivel.basico { background: #d4edda; color: #155724; }
+        .nivel.intermedio { background: #fff3cd; color: #856404; }
+        .nivel.avanzado { background: #f8d7da; color: #721c24; }
+        
+        .temas-cubiertos {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .temas-cubiertos h2 {
+            color: #495057;
+            margin-top: 0;
+        }
+        
+        .grid-temas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .tema-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #343a40;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 Ejercicios de JavaScript Asíncrono</h1>
+        <p>Colección completa de ejercicios funcionales resueltos para aprender asincronía en JavaScript</p>
+        <p><strong>Basado en el contenido de Clase 5 JS</strong></p>
+    </div>
+
+    <div class="temas-cubiertos">
+        <h2>📚 Temas Cubiertos</h2>
+        <div class="grid-temas">
+            <div class="tema-item">
+                <h4>🔄 Asincronía</h4>
+                <p>Conceptos fundamentales de programación asíncrona</p>
+            </div>
+            <div class="tema-item">
+                <h4>📞 Callbacks</h4>
+                <p>Funciones callback y manejo de errores</p>
+            </div>
+            <div class="tema-item">
+                <h4>⏰ setTimeout/setInterval</h4>
+                <p>Ejecución de código en el tiempo</p>
+            </div>
+            <div class="tema-item">
+                <h4>🤝 Promises</h4>
+                <p>Manejo moderno de operaciones asíncronas</p>
+            </div>
+            <div class="tema-item">
+                <h4>⚡ async/await</h4>
+                <p>Sintaxis moderna para código asíncrono</p>
+            </div>
+            <div class="tema-item">
+                <h4>🌐 Fetch API</h4>
+                <p>Comunicación con APIs y servicios web</p>
+            </div>
+            <div class="tema-item">
+                <h4>🚨 Manejo de Errores</h4>
+                <p>Códigos HTTP y gestión de errores</p>
+            </div>
+            <div class="tema-item">
+                <h4>🔧 APIs</h4>
+                <p>Interfaces de programación de aplicaciones</p>
+            </div>
+            <div class="tema-item">
+                <h4>🎨 DOM y Estilos</h4>
+                <p>Manipulación dinámica del DOM y CSS</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ejercicio-card promises">
+        <h3>1. 📋 Promises <span class="nivel basico">BÁSICO</span></h3>
+        <div class="conceptos">
+            <h4>Conceptos que aprenderás:</h4>
+            <ul>
+                <li>Qué son las Promises y para qué sirven</li>
+                <li>Estados de una Promise (pending, fulfilled, rejected)</li>
+                <li>Uso de .then() y .catch()</li>
+                <li>Promise.all() para operaciones paralelas</li>
+                <li>Promise.race() para obtener la primera respuesta</li>
+                <li>Creación de Promises con new Promise()</li>
+            </ul>
+        </div>
+        <p><strong>Archivo:</strong> <code>01-promises.html</code></p>
+        <p>Ejercicios prácticos que incluyen simulación de operaciones asíncronas, manejo de errores y combinación de múltiples Promises.</p>
+        <a href="01-promises.html" class="boton-ejercicio">Abrir Ejercicios de Promises</a>
+    </div>
+
+    <div class="ejercicio-card async-await">
+        <h3>2. ⚡ async/await <span class="nivel intermedio">INTERMEDIO</span></h3>
+        <div class="conceptos">
+            <h4>Conceptos que aprenderás:</h4>
+            <ul>
+                <li>Sintaxis async/await vs Promises tradicionales</li>
+                <li>Operaciones secuenciales vs paralelas</li>
+                <li>Manejo de errores con try/catch</li>
+                <li>Uso de async/await en bucles</li>
+                <li>Combinación con Promise.all() y Promise.allSettled()</li>
+                <li>Mejores prácticas para código legible</li>
+            </ul>
+        </div>
+        <p><strong>Archivo:</strong> <code>02-async-await.html</code></p>
+        <p>Ejercicios que muestran cómo convertir código con Promises a async/await, operaciones complejas y manejo de errores elegante.</p>
+        <a href="02-async-await.html" class="boton-ejercicio">Abrir Ejercicios de async/await</a>
+    </div>
+
+    <div class="ejercicio-card fetch">
+        <h3>3. 🌐 Fetch API <span class="nivel intermedio">INTERMEDIO</span></h3>
+        <div class="conceptos">
+            <h4>Conceptos que aprenderás:</h4>
+            <ul>
+                <li>Peticiones GET, POST, PUT, DELETE</li>
+                <li>Manejo de diferentes tipos de respuesta (JSON, texto, blob)</li>
+                <li>Headers personalizados y autenticación</li>
+                <li>Múltiples peticiones paralelas y secuenciales</li>
+                <li>Sistema de interceptores y middleware</li>
+                <li>Upload de archivos con FormData</li>
+            </ul>
+        </div>
+        <p><strong>Archivo:</strong> <code>03-fetch-api.html</code></p>
+        <p>Ejercicios prácticos con APIs reales, simulación de diferentes escenarios y manejo de respuestas HTTP.</p>
+        <a href="03-fetch-api.html" class="boton-ejercicio">Abrir Ejercicios de Fetch API</a>
+    </div>
+
+    <div class="ejercicio-card callbacks">
+        <h3>4. 📞 Callbacks <span class="nivel basico">BÁSICO</span></h3>
+        <div class="conceptos">
+            <h4>Conceptos que aprenderás:</h4>
+            <ul>
+                <li>Qué son las funciones callback</li>
+                <li>forEach() y otros métodos de array</li>
+                <li>setTimeout() con callbacks</li>
+                <li>Patrón error-first callback</li>
+                <li>Callback Hell y sus problemas</li>
+                <li>Creación de funciones que aceptan callbacks</li>
+            </ul>
+        </div>
+        <p><strong>Archivo:</strong> <code>04-callbacks.html</code></p>
+        <p>Ejercicios basados en el contenido del PDF, incluyendo el juego de dados y comparaciones con bucles tradicionales.</p>
+        <a href="04-callbacks.html" class="boton-ejercicio">Abrir Ejercicios de Callbacks</a>
+    </div>
+
+    <div class="ejercicio-card timing">
+        <h3>5. ⏰ setTimeout y setInterval <span class="nivel basico">BÁSICO</span></h3>
+        <div class="conceptos">
+            <h4>Conceptos que aprenderás:</h4>
+            <ul>
+                <li>setTimeout() para ejecución diferida</li>
+                <li>setInterval() para ejecución repetitiva</li>
+                <li>clearTimeout() y clearInterval()</li>
+                <li>Cronómetros y contadores visuales</li>
+                <li>Sistema de notificaciones temporales</li>
+                <li>Sliders automáticos y animaciones</li>
+            </ul>
+        </div>
+        <p><strong>Archivo:</strong> <code>05-setTimeout-setInterval.html</code></p>
+        <p>Ejercicios interactivos que incluyen cronómetros, contadores visuales, notificaciones y sliders automáticos.</p>
+        <a href="05-setTimeout-setInterval.html" class="boton-ejercicio">Abrir Ejercicios de Timing</a>
+    </div>
+
+    <div class="ejercicio-card errors">
+        <h3>6. 🚨 Manejo de Errores y APIs <span class="nivel avanzado">AVANZADO</span></h3>
+        <div class="conceptos">
+            <h4>Conceptos que aprenderás:</h4>
+            <ul>
+                <li>Códigos de estado HTTP (200, 400, 401, 403, 404, 429, 500)</li>
+                <li>Manejo de errores con try/catch</li>
+                <li>Validación de formularios robusta</li>
+                <li>Simulación de respuestas de API</li>
+                <li>Sistema de reintentos con backoff exponencial</li>
+                <li>Logging y monitoreo de errores</li>
+            </ul>
+        </div>
+        <p><strong>Archivo:</strong> <code>06-manejo-errores.html</code></p>
+        <p>Ejercicios avanzados que cubren todos los aspectos del manejo de errores en aplicaciones web modernas.</p>
+        <a href="06-manejo-errores.html" class="boton-ejercicio">Abrir Ejercicios de Manejo de Errores</a>
+    </div>
+
+    <div class="ejercicio-card dom-styles">
+        <h3>7. 🎨 Manipulación del DOM con Estilos <span class="nivel intermedio">INTERMEDIO</span></h3>
+        <div class="conceptos">
+            <h4>Conceptos que aprenderás:</h4>
+            <ul>
+                <li>Modificar estilos CSS dinámicamente</li>
+                <li>Crear elementos HTML con JavaScript</li>
+                <li>Cambio de temas en tiempo real</li>
+                <li>Animaciones y transiciones CSS</li>
+                <li>Efectos interactivos con eventos</li>
+                <li>Manipulación avanzada del DOM</li>
+            </ul>
+        </div>
+        <p><strong>Archivo:</strong> <code>07-dom-styles.html</code></p>
+        <p>Ejercicios prácticos para aprender a modificar estilos y crear elementos dinámicamente con JavaScript.</p>
+        <a href="07-dom-styles.html" class="boton-ejercicio">Abrir Ejercicios de DOM y Estilos</a>
+    </div>
+
+    <div class="temas-cubiertos">
+        <h2>🎯 Cómo usar estos ejercicios</h2>
+        <div class="grid-temas">
+            <div class="tema-item">
+                <h4>📖 Orden recomendado</h4>
+                <p>Comienza con Callbacks y setTimeout, luego Promises, async/await, Fetch API y finalmente Manejo de Errores</p>
+            </div>
+            <div class="tema-item">
+                <h4>💻 Ejecuta el código</h4>
+                <p>Cada ejercicio es completamente funcional. Abre los archivos HTML en tu navegador y experimenta</p>
+            </div>
+            <div class="tema-item">
+                <h4>🔍 Revisa la consola</h4>
+                <p>Muchos ejercicios incluyen logs en la consola del navegador para mejor comprensión</p>
+            </div>
+            <div class="tema-item">
+                <h4>🛠️ Modifica y experimenta</h4>
+                <p>Cambia parámetros, tiempos y valores para entender mejor cómo funciona cada concepto</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>📚 Recursos Adicionales</h3>
+        <p>Estos ejercicios están basados en el contenido de <strong>Clase 5 JS</strong> y cubren todos los temas de asincronía en JavaScript.</p>
+        <p>Cada ejercicio incluye código funcional, explicaciones detalladas y ejemplos prácticos.</p>
+        <p><em>¡Perfecto para enseñar a tus alumnos los conceptos de programación asíncrona!</em></p>
+    </div>
+</body>
+</html>
