@@ -20,7 +20,8 @@ function ejecutarEjercicio1() {
     for (let i = 0; i < list.length; i++) {
         resultado.innerHTML += `<div>i= ${i}, list= ${list[i]}</div>`;
     }
-    
+
+
     // Mostrar resultados usando forEach con callback
     resultado.innerHTML += '<h5>Con Callbacks (forEach):</h5>';
     list.forEach((element, index) => {

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "p1",
+    "title": "Zapatillas Runner",
+    "price": 38999,
+    "image": "https://picsum.photos/seed/run/300/200"
+  },
+  {
+    "id": "p2",
+    "title": "Remera Dry",
+    "price": 12999,
+    "image": "https://picsum.photos/seed/tee/300/200"
+  },
+  {
+    "id": "p3",
+    "title": "Mochila 25L",
+    "price": 24999,
+    "image": "https://picsum.photos/seed/bag/300/200"
+  }
+]

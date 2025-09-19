@@ -16,13 +16,19 @@ function cambiarTema() {
     const body = document.body; // El elemento body de la página
     const botones = document.querySelectorAll('button'); // Todos los botones
     const ejercicios = document.querySelectorAll('.ejercicio'); // Todos los ejercicios
-    
+    const codigos = document.querySelectorAll('.codigo'); // Todas las etiquetas codigos
     // Verificar qué tema está activo y cambiar al opuesto
     if (temaActual === 'claro') {
         // Cambiar a tema oscuro
         body.style.backgroundColor = '#1a1a1a'; // Fondo oscuro
         body.style.color = '#ffffff'; // Texto blanco
-        
+        // Cambiar estilos de todos los codigos
+        codigos.forEach(codigo => {
+            codigo.style.backgroundColor = '#2d2d2d'; // Fondo gris oscuro
+            codigo.style.color = '#ffffff'; // Texto blanco
+            codigo.style.border = '1px solid #444'; // Borde gris
+        });
+
         // Cambiar estilos de todos los ejercicios
         ejercicios.forEach(ejercicio => {
             ejercicio.style.backgroundColor = '#2d2d2d'; // Fondo gris oscuro

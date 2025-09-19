@@ -22,7 +22,7 @@ function ejecutarEjercicio1() {
     // Segundo setTimeout: se ejecuta después de 1.5 segundos
     setTimeout(() => {
         resultado.innerHTML += '2. ¡Hola Juan! (después de 1.5s)<br>';
-    }, 1500); // 1500 milisegundos = 1.5 segundos
+    }, 4000); // 1500 milisegundos = 1.5 segundos
     
     // Tercer setTimeout: se ejecuta después de 2 segundos
     // Guardamos el ID para poder cancelarlo después
