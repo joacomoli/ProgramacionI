@@ -1,0 +1,13 @@
+Ejercicio 5: Simular carga de productos
+
+Objetivo: Comprender el uso básico de Promise, resolve y then.
+
+Descripción:
+
+Crear una función obtenerProductos() que devuelva una promesa.
+
+Simular con setTimeout una demora de 2 segundos.
+
+Al resolverse, retornar un array de productos.
+
+Mostrar los productos en una lista (<ul>) usando el DOM.

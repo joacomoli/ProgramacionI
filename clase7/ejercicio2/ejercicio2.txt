@@ -1,0 +1,8 @@
+Ejercicio 2: Agregar elementos al DOM
+
+
+Descripción:
+
+Crear un botón que, al hacer clic, agregue un nuevo producto a una lista (<ul>) y lo muestre en pantalla. 
+
+Cada producto debe tener nombre y precio.

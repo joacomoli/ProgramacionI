@@ -1,0 +1,9 @@
+Ejercicio 3: Mostrar detalles de producto
+
+
+
+Descripción:
+
+Crear una lista de productos como botones o cards.
+
+Al hacer clic en un producto, mostrar sus detalles en un div aparte (nombre, precio, descripción).

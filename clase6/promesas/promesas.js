@@ -6,6 +6,7 @@ async function mostrarProductos() {
     console.table(listaDeProductos);
   } catch (error) {
     console.error(error);
+    
   }
 }
 

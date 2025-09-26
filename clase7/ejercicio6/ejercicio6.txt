@@ -1,0 +1,13 @@
+Ejercicio 6: Cargar productos al hacer clic
+
+Objetivo: Integrar eventos DOM con promesas.
+
+Descripción:
+
+Agregar un botón “Cargar productos”.
+
+Al hacer clic, iniciar la promesa de carga.
+
+Mostrar los productos en pantalla.
+
+Extra: Desactivar el botón mientras se cargan y reactivarlo luego.

@@ -1,0 +1,9 @@
+Ejercicio 4: Filtrar productos por nombre
+
+Descripción:
+
+Tener un input para buscar productos por nombre.
+
+Al escribir, filtrar la lista de productos y mostrar solo los que coincidan.
+
+Extra: Que la búsqueda no distinga entre mayúsculas/minúsculas.

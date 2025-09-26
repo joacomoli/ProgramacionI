@@ -1,0 +1,15 @@
+Ejercicio 7: Simular login con promesa
+
+Objetivo: Simular autenticación usando promesas.
+
+Descripción:
+
+Crear un pequeño formulario con email y password.
+
+Al enviar, se ejecuta una función que devuelve una promesa.
+
+Si los datos son correctos (email === "admin@tienda.com"), se resuelve.
+
+Si no, se rechaza con mensaje de error.
+
+Extra: Mostrar spinner mientras “valida”.

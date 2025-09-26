@@ -1,0 +1,10 @@
+Ejercicio 1: Cambiar el contenido de un elemento
+
+Descripción:
+
+Crear un HTML con un título <h1> que diga “Bienvenido a nuestra tienda”.
+
+Agregar un botón que, al hacer clic, cambie el contenido del <h1> por “Gracias por visitarnos”.
+
+Extra: Agregar un input de texto, y al hacer clic en el botón, usar el valor del input como nuevo texto del <h1>.
+
