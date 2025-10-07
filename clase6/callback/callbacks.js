@@ -3,7 +3,8 @@ function obtenerProductos(callback) {
   console.log("⏳ Buscando productos...");
 
   // Simulamos un retraso de 2 segundos (como si fuera una petición al servidor)
-  setTimeout(() => {
+  setTimeout(
+    () => {
     const productos = [
       { id: 1, nombre: "Remera", precio: 5000 },
       { id: 2, nombre: "Pantalón", precio: 9000 },
@@ -13,7 +14,8 @@ function obtenerProductos(callback) {
     
     // Ejecutamos el callback y le pasamos la lista de productos
     callback(productos);
-  }, 2000);
+  }
+  , 2000);
 }
 
 // Uso de la función con callback

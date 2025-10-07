@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Star Wars</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .search-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            min-height: 50px;
+        }
+        .character-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+        .error {
+            color: #d32f2f;
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h1>🔍 Buscador de Personajes de Star Wars</h1>
+        <div>
+            <input type="text" id="characterName" placeholder="Escribe un nombre (ej: skywalker, leia, vader)">
+            <button onclick="searchCharacter()">Buscar Personaje</button>
+        </div>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        // La URL base de la API de Star Wars
+        const BASE_URL = "https://swapi.dev/api";
+
+        // Función principal que busca el personaje
+        async function searchCharacter() {
+            const characterName = document.getElementById('characterName').value.trim();
+            const resultDiv = document.getElementById('result');
+            
+            // Validar que se haya escrito algo
+            if (!characterName) {
+                resultDiv.innerHTML = '<p class="error">Por favor, escribe el nombre de un personaje.</p>';
+                return;
+            }
+
+            // Mostrar un mensaje de "cargando" mientras se hace la petición
+            resultDiv.innerHTML = '<p class="loading">Buscando en la galaxia...</p>';
+            
+            try {
+                // Hacer la petición a la API usando fetch
+                // La API permite buscar por nombre con el parámetro "search":cite[1]
+                const response = await fetch(`${BASE_URL}/people/?search=${encodeURIComponent(characterName)}`);
+                
+                // Verificar si la respuesta de la API es exitosa
+                if (!response.ok) {
+                    throw new Error('No se pudo conectar con la API');
+                }
+                
+                // Convertir la respuesta a JSON
+                const data = await response.json();
+                
+                // Verificar si se encontraron resultados
+                // La API devuelve un array "results" con los personajes encontrados:cite[1]
+                if (data.count === 0 || data.results.length === 0) {
+                    resultDiv.innerHTML = `<p class="error">No se encontró ningún personaje llamado "${characterName}".</p>`;
+                    return;
+                }
+                
+                // Tomar el primer personaje de los resultados (la búsqueda es parcial y case-insensitive):cite[1]
+                const character = data.results[0];
+                
+                // Mostrar los datos del personaje en una tarjeta
+                displayCharacter(character);
+                
+            } catch (error) {
+                // Manejar cualquier error que ocurra durante la petición
+                console.error('Error:', error);
+                resultDiv.innerHTML = `<p class="error">Error: ${error.message}. Verifica tu conexión e intenta nuevamente.</p>`;
+            }
+        }
+
+        // Función para mostrar la información del personaje
+        function displayCharacter(character) {
+            const resultDiv = document.getElementById('result');
+            
+            // Crear una tarjeta con la información del personaje
+            // Los datos vienen directamente de la API:cite[1]:cite[2]
+            resultDiv.innerHTML = `
+                <div class="character-card">
+                    <h2>${character.name}</h2>
+                    <p><strong>📏 Altura:</strong> ${character.height} cm</p>
+                    <p><strong>⚖️ Peso:</strong> ${character.mass} kg</p>
+                    <p><strong>👱 Color de pelo:</strong> ${character.hair_color}</p>
+                    <p><strong>🎨 Color de piel:</strong> ${character.skin_color}</p>
+                    <p><strong>👁️ Color de ojos:</strong> ${character.eye_color}</p>
+                    <p><strong>🎂 Año de nacimiento:</strong> ${character.birth_year}</p>
+                    <p><strong>⚧️ Género:</strong> ${character.gender}</p>
+                </div>
+            `;
+        }
+
+        // Permitir buscar pulsando Enter en el campo de texto
+        document.getElementById('characterName').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchCharacter();
+            }
+        });
+    </script>
+</body>
+</html>
