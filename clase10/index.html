@@ -1,0 +1,57 @@
+<!--
+Objetivo
+Desarrollar una aplicaci�n web para gesti�n de tareas personales usando HTML5, CSS3 y JavaScript Vanilla que permita administrar tareas de forma interactiva.
+
+? Funcionalidades Requeridas
+Gesti�n B�sica de Tareas:
+? Agregar nuevas tareas a la lista
+
+? Editar tareas existentes (modificar contenido)
+
+?? Visualizar todas las tareas en una lista clara
+
+?? Eliminar tareas individuales
+
+? Marcar como completadas las tareas finalizadas
+
+Comportamiento Esperado:
+Las tareas deben persistir durante la sesi�n del usuario
+
+Interfaz intuitiva y responsive
+
+Validaci�n de campos vac�os
+
+Feedback visual al usuario (confirmaciones de acciones)
+
+?? Tecnolog�as Permitidas
+HTML5 (estructura sem�ntica)
+
+CSS3 (estilos y dise�o responsive)
+
+JavaScript Vanilla (ES6+)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="campoDeEscritura">Escribi acá tu tarea</div>
+        <button id="botonEnviar" onclick="mostrarValor()">Enviar</button>
+        <button id="botonOrdenar" onclick="ordenarMayorAMenor()">Ordenad de mayor a menor</button>
+    </div>
+    <div class="container" id="contenedor-lista">
+
+
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    window.SUPABASE_URL ='https://yyirgbtdfuyhvdfzyipa.supabase.co';
+    window.SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl5aXJnYnRkZnV5aHZkZnp5aXBhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjEzMzY4NDMsImV4cCI6MjA3NjkxMjg0M30.kWuACtVVZWAb978bSxNx8thc_v9zSSMz48KhFIHzY48"
+</script>
+<script src="./funciones.js"></script>
+</body>
+</html>

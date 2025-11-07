@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Agendador</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: 20px auto; }
+        #agregar-tarea { display: flex; margin-bottom: 20px; }
+        #nueva-tarea { flex: 1; padding: 8px; }
+        button { padding: 8px 15px; margin-left: 10px; }
+        .tarea { background: #f0f0f0; padding: 10px; margin: 5px 0; }
+        .completada { text-decoration: line-through; opacity: 0.6; }
+    </style>
+</head>
+<body>
+    <h1>📝 Mi Agendador</h1>
+    
+    <div id="agregar-tarea">
+        <input type="text" id="nueva-tarea" placeholder="Escribe una tarea...">
+        <button onclick="agregarTarea()">Agregar</button>
+    </div>
+    
+    <div id="lista-tareas"></div>
+
+    <script src="./funciones.js"></script>
+</body>
+</html>

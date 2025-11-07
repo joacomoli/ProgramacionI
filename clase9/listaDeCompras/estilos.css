@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2em;
+}
+
+.agregar-producto {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+#nombre-producto {
+    flex: 2;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#cantidad-producto {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    min-width: 80px;
+}
+
+button {
+    padding: 12px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+.lista-productos {
+    margin-bottom: 20px;
+}
+
+.producto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 5px solid #4CAF50;
+    transition: all 0.3s;
+}
+
+.producto.comprado {
+    background: #e8f5e8;
+    border-left-color: #888;
+    opacity: 0.7;
+}
+
+.info-producto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.nombre-producto {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.cantidad-producto {
+    background: #4CAF50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.producto.comprado .nombre-producto {
+    text-decoration: line-through;
+    color: #666;
+}
+
+.producto.comprado .cantidad-producto {
+    background: #888;
+}
+
+.acciones-producto {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-comprar, .btn-editar, .btn-eliminar {
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-comprar {
+    background: #2196F3;
+    color: white;
+}
+
+.btn-comprar:hover {
+    background: #1976D2;
+}
+
+.btn-editar {
+    background: #FF9800;
+    color: white;
+}
+
+.btn-editar:hover {
+    background: #F57C00;
+}
+
+.btn-eliminar {
+    background: #f44336;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background: #d32f2f;
+}
+
+.resumen {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.resumen h3 {
+    margin-bottom: 10px;
+    color: #1976D2;
+}
+
+#detalles-resumen {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.item-resumen {
+    padding: 10px;
+}
+
+.numero {
+    font-size: 24px;
+    color: #1976D2;
+}
+
+/* Estilos para el input cuando está vacío */
+input:invalid {
+    border-color: #ff4444;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .agregar-producto {
+        flex-direction: column;
+    }
+    
+    #nombre-producto, #cantidad-producto, button {
+        width: 100%;
+    }
+    
+    .producto {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .acciones-producto {
+        align-self: flex-end;
+    }
+}

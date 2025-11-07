@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrador de Tareas</title>
+  <!-- Enlace al archivo de estilos CSS externo -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Título de la aplicación -->
+  <h1>Administrador de Tareas</h1>
+
+  <!-- Formulario para agregar una nueva tarea -->
+  <form id="form-tarea">
+    <!-- Campo de texto para la descripción de la nueva tarea -->
+    <input type="text" id="input-tarea" placeholder="Nueva tarea..." required />
+    <!-- Botón para enviar/agregar la nueva tarea -->
+    <button type="submit">Agregar tarea</button>
+  </form>
+
+  <!-- Lista donde se mostrarán las tareas existentes -->
+  <ul id="lista-tareas">
+    <!-- Las tareas se insertarán dinámicamente aquí mediante JavaScript -->
+  </ul>
+
+  <!-- Inclusión del archivo JavaScript con la lógica de la aplicación -->
+  <script src="script.js"></script>
+</body>
+</html>
