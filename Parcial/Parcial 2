@@ -1,0 +1,87 @@
+# 📝 Examen Parcial - Gestor de Turnos Médicos
+
+## 🎯 **Consigna del Examen**
+
+### **Tiempo:** 2 horas
+### **Objetivo:** 
+Desarrollar una aplicación web para gestionar turnos médicos con búsqueda, filtros y cambio de estado.
+
+## 📋 **Descripción del Problema**
+
+Debes crear un **Gestor de Turnos Médicos** que permita:
+- 📄 Ver lista completa de turnos
+- 🔍 Buscar turnos por nombre del paciente y mostrar sus detalles
+- ✅ Cambiar estado de pendiente/realizado
+- 🎚️ Filtrar por estado (todos/pendientes/realizados)
+- ➕ Agregar nuevos turnos
+
+---
+
+## 🏥 **Array de Turnos (Base Inicial)**
+
+```javascript
+let turnos = [
+    { id: 1, paciente: "Ana García", medico: "Dr. Pérez", fecha: "2024-12-15", hora: "10:00", realizado: true },
+    { id: 2, paciente: "Carlos López", medico: "Dra. Gómez", fecha: "2024-12-16", hora: "11:30", realizado: false },
+    { id: 3, paciente: "María Rodríguez", medico: "Dr. Martínez", fecha: "2024-12-15", hora: "15:00", realizado: true },
+    { id: 4, paciente: "Pedro Sánchez", medico: "Dra. Díaz", fecha: "2024-12-17", hora: "09:00", realizado: false },
+    { id: 5, paciente: "Laura Fernández", medico: "Dr. Pérez", fecha: "2024-12-16", hora: "16:30", realizado: true },
+    { id: 6, paciente: "Diego Silva", medico: "Dra. Gómez", fecha: "2024-12-18", hora: "14:00", realizado: false },
+    { id: 7, paciente: "Sofía Castro", medico: "Dr. Martínez", fecha: "2024-12-17", hora: "11:00", realizado: false }
+];
+```
+
+
+
+## 🛠️ **Requisitos Técnicos**
+
+### **1. Mostrar Lista de Turnos**
+- Mostrar en una lista o tabla: paciente, médico, fecha, hora y estado
+- Diferenciar visualmente realizados (verde) vs pendientes (rojo)
+- Formatear fecha y hora de forma legible
+
+### **2. Sistema de Búsqueda**
+- Campo de texto para escribir nombre del paciente
+- Botón "Buscar" que muestre los detalles del turno encontrado en pantalla
+- Mostrar: **ID, Paciente, Médico, Fecha, Hora, Estado actual**
+- Botón para cambiar estado (Marcar como Realizado/Pendiente)
+
+### **3. Filtros de Estado**
+- **Todos** - mostrar todos los turnos
+- **Realizados** - mostrar solo turnos realizados
+- **Pendientes** - mostrar solo turnos pendientes
+
+### **4. Agregar Nuevos Turnos**
+- Formulario con: paciente (texto), médico (texto), fecha (texto), hora (texto)
+- Al agregar, el turno estará pendiente por defecto (realizado: false)
+- Actualizar la lista inmediatamente
+
+
+
+## 📊 **Criterios de Evaluación**
+
+| **Criterio** | **Puntos** | **Descripción** |
+|-------------|------------|-----------------|
+| **Mostrar lista** | 2 pts | Lista funcional con estados visuales y datos formateados |
+| **Búsqueda y detalles** | 2.5 pts | Búsqueda funciona y muestra detalles correctos |
+| **Cambio de estado** | 2 pts | Botón cambia estado correctamente |
+| **Filtros** | 1.5 pts | Los 3 filtros funcionan correctamente |
+| **Agregar turnos** | 1.5 pts | Formulario funciona y valida datos |
+| **Calidad del código** | 0.5 pts | Código organizado y legible |
+
+**Total: 10 puntos**
+
+
+
+
+
+## 🚀 **Instrucciones de Desarrollo**
+
+1. **Comienza** mostrando la lista de turnos (con estados visuales)
+2. **Implementa** la búsqueda exacta por nombre del paciente
+3. **Agrega** el cambio de estado realizado/pendiente
+4. **Programa** los filtros por estado
+5. **Finaliza** con el formulario para agregar turnos
+
+
+
