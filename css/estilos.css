@@ -1,0 +1,58 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	
+}
+.contenedor{
+	display: flex;
+	border-radius: 30px;
+	border:solid 3px black;
+	background-color: darkgrey;
+	box-shadow: 10px 10px;
+	flex-direction:column;
+	align-content:space-around;
+	padding: 100px;
+}
+body{
+	font-family: 'Rubik', sans-serif;
+}
+header{
+	
+}
+nav ul{
+	
+}
+nav ul li{
+	
+}
+nav ul li a{
+	
+}
+a{
+
+}
+.icon { }
+section{
+
+}
+.principal{
+}
+.principal div img{
+}
+.secundario{
+}
+.secundario div{
+}
+.secundario div a img{
+}
+h4{
+}
+footer{
+}
+footer img{
+}
+
+@media (max-width: 480px) { 
+
+}
